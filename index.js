@@ -14,7 +14,7 @@ const app = express();
 
 // CORS options
 const corsOptions = {
-  origin: "https://portfolio-server-1-a04i.onrender.com", // your React client
+  origin: "https://myprotfolio-eta-indol.vercel.app/", // your React client
   credentials: true, // allows cookies & headers like Authorization
 };
 
