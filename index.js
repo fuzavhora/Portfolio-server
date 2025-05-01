@@ -14,7 +14,7 @@ const app = express();
 
 // CORS options
 const corsOptions = {
-  origin: "http://localhost:3000", // your React client
+  origin: "https://portfolio-server-1-a04i.onrender.com", // your React client
   credentials: true, // allows cookies & headers like Authorization
 };
 
