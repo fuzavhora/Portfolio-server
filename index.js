@@ -14,10 +14,10 @@ app.use(cors())
 // Middleware
 
 // CORS options
-const corsOptions = {
-  origin: "https://myprotfolio-eta-indol.vercel.app/", // your React client
-  credentials: true, // allows cookies & headers like Authorization
-};
+// const corsOptions = {
+//   origin: "https://myprotfolio-eta-indol.vercel.app/", // your React client
+//   credentials: true, // allows cookies & headers like Authorization
+// };
 
 // app.use(cors(corsOptions));
 
@@ -30,9 +30,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio
   .catch((err) => console.error('MongoDB connection error:', err));
 
 // Routes
-app.use('/api/projects', require('./routes/projects'));
-app.use('/api/contact', require('./routes/contact'));
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/projects', cors(), require('./routes/projects'));
+app.use('/api/contact', cors(), require('./routes/contact'));
+app.use('/api/auth', cors(), require('./routes/auth'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
