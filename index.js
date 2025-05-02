@@ -23,14 +23,19 @@ const app = express();
 
 const allowOrigins = ['https://myprotfolio-eta-indol.vercel.app'];
 
+// app.use(cors({
+//   origin: function (origin,callback) {
+//     if(!origin || allowOrigins.includes(origin)){
+//       console.log('Origin:', origin);
+//     callback(null,true)
+//     } else{
+//       callback(new Error('Not allowed by CORS'))
+//     } 
+//   }
+// }))
+
 app.use(cors({
-  origin: function (origin,callback) {
-    if(allowOrigins.includes(origin)){
-    callback(null,true)
-    } else{
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
+  origin : '*',
 }))
 
 app.use(express.json());
