@@ -10,15 +10,16 @@ dotenv.config();
 // Create Express app
 const app = express();
 
+app.use(cors())
 // Middleware
 
 // CORS options
 const corsOptions = {
-  origin: "https://portfolio-server-1-a04i.onrender.com", // your React client
+  origin: "https://myprotfolio-eta-indol.vercel.app/", // your React client
   credentials: true, // allows cookies & headers like Authorization
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
