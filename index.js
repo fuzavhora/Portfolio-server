@@ -10,7 +10,7 @@ dotenv.config();
 // Create Express app
 const app = express();
 
-app.use(cors())
+// app.use(cors())
 // Middleware
 
 // CORS options
@@ -21,6 +21,18 @@ app.use(cors())
 
 // app.use(cors(corsOptions));
 
+const allowOrigins = ['https://myprotfolio-eta-indol.vercel.app'];
+
+app.use(cors({
+  origin: function (origin,callback) {
+    if(allowOrigins.includes(origin)){
+    callback(null,true)
+    } else{
+      callback(new Error('Not allowed by CORS'))
+    }F
+  }
+}))
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,9 +42,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio
   .catch((err) => console.error('MongoDB connection error:', err));
 
 // Routes
-app.use('/api/projects', cors(), require('./routes/projects'));
-app.use('/api/contact', cors(), require('./routes/contact'));
-app.use('/api/auth', cors(), require('./routes/auth'));
+app.use('/api/projects', require('./routes/projects'));
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/auth', require('./routes/auth'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
