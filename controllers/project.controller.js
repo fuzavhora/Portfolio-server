@@ -57,7 +57,7 @@ const getAllProjects = asyncHandler(async (req, res) => {
 const deleteProject = asyncHandler(async (req, res) => {
   const { title } = req.params;
 
-  const project = await Project.findOne(title);
+  const project = await Project.findOne({title});
   if (!project) {
     return res.status(404).json({ message: "Project not found" });
   }
