@@ -5,7 +5,7 @@ const router = express.Router();
 
 // POST /api/admin/login
 router.post('/create-project',verifyToken, createProject);
-router.delete('/delete-project',verifyToken, deleteProject);
+router.delete('/delete-project/:title',verifyToken, deleteProject);
 router.get('/', getAllProjects);
 
 module.exports = router;
