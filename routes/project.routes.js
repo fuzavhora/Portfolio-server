@@ -5,6 +5,6 @@ const router = express.Router();
 
 // POST /api/admin/login
 router.post('/create-project',verifyToken, createProject);
-router.get('/',verifyToken, getAllProjects);
+router.get('/', getAllProjects);
 
 module.exports = router;
