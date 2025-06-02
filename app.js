@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const adminRoutes = require("./routes/admin.routes");
 const projectRoutes = require("./routes/project.routes");
+const contactRoutes = require("./routes/contact.js");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
@@ -17,7 +18,7 @@ app.use(
 );
 
 // Example route
-
+app.use("/contact", contactRoutes)
 app.use("/admin", adminRoutes);
 app.use("/project", projectRoutes);
 app.get("/", (req, res) => {
